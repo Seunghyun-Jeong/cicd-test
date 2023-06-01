@@ -4,17 +4,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building...'
+                echo 'done'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
+                echo 'done'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                script {
+                    sh '/script/codedeploy/live/api-start.sh'
+                    sh '/script/codedeploy/live/chat-start.sh'
+                    sh '/script/codedeploy/live/etc-start.sh'
+                    sh '/script/codedeploy/live/main-start.sh'
+                    sh '/script/codedeploy/live/parser-start.sh'
+                    sh '/script/codedeploy/live/rooms-start.sh'
+                }
+                echo 'done'
             }
         }
     }
