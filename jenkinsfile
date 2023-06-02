@@ -21,10 +21,10 @@ pipeline {
                     sh "chmod +x -R ${env.WORKSPACE}"
                     sh "/var/jenkins_home/workspace/cicd-test/scripts/codedeploy/live/api-start.sh"
                     sh "/var/jenkins_home/workspace/cicd-test/scripts/codedeploy/live/chat-start.sh"
-                    sh "${env.WORKSPACE}/cicd-test/scripts/codedeploy/live/etc-start.sh"
-                    sh "${env.WORKSPACE}/cicd-test/scripts/codedeploy/live/main-start.sh"
-                    sh "${env.WORKSPACE}/cicd-test/scripts/codedeploy/live/parser-start.sh"
-                    sh "${env.WORKSPACE}/cicd-test/scripts/codedeploy/live/rooms-start.sh"
+                    sh "${env.WORKSPACE}cicd-test/scripts/codedeploy/live/etc-start.sh"
+                    sh "${env.WORKSPACE}cicd-test/scripts/codedeploy/live/main-start.sh"
+                    sh "${env.WORKSPACE}cicd-test/scripts/codedeploy/live/parser-start.sh"
+                    sh "${env.WORKSPACE}cicd-test/scripts/codedeploy/live/rooms-start.sh"
                 }
                 echo 'Done.'
             }
