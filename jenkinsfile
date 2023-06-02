@@ -18,12 +18,12 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 script {
-                    sh '/scripts/codedeploy/live/api-start.sh'
-                    sh '/scripts/codedeploy/live/chat-start.sh'
-                    sh '/scripts/codedeploy/live/etc-start.sh'
-                    sh '/scripts/codedeploy/live/main-start.sh'
-                    sh '/scripts/codedeploy/live/parser-start.sh'
-                    sh '/scripts/codedeploy/live/rooms-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/api-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/chat-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/etc-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/main-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/parser-start.sh'
+                    sh 'cicd-test/scripts/codedeploy/live/rooms-start.sh'
                 }
                 echo 'done'
             }
