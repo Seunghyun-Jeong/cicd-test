@@ -5,27 +5,27 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo 'done'
+                echo 'Done.'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                echo 'done'
+                echo 'Done.'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
                 script {
-                    sh 'cicd-test/scripts/codedeploy/live/api-start.sh'
-                    sh 'cicd-test/scripts/codedeploy/live/chat-start.sh'
-                    sh 'cicd-test/scripts/codedeploy/live/etc-start.sh'
-                    sh 'cicd-test/scripts/codedeploy/live/main-start.sh'
-                    sh 'cicd-test/scripts/codedeploy/live/parser-start.sh'
-                    sh 'cicd-test/scripts/codedeploy/live/rooms-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/api-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/chat-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/etc-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/main-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/parser-start.sh'
+                    sh '/cicd-test/scripts/codedeploy/live/rooms-start.sh'
                 }
-                echo 'done'
+                echo 'Done.'
             }
         }
     }
