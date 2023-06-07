@@ -7,10 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'npm config ls'
-                sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn install'
-                sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn build'
-                dir('/var/jenkins_home/workspace/cicd-test/dockerfile') {
+                dir('/var/jenkins_home/workspace/cicd-test/Dockerfile') {
                     sh 'docker build -t test:latest .'
                 }
                 echo 'Done!'
