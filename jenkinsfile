@@ -1,16 +1,15 @@
 pipeline {
     agent any
 
-    // tools {nodejs "nodejs"}
+    tools {nodejs "nodejs"}
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-                nodejs(nodeJSInstallationName: 'Node 16.20.0', configId: '<config-file-provider-id>') {
+                sh 'npm config ls'
                 sh 'yarn install'
                 sh 'yarn build'
-                }
                 sh 'docker build -t test:latest .'
                 echo 'Done!'
             }
