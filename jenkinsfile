@@ -1,13 +1,13 @@
 pipeline {
     agent any
 
-    // tools {nodejs "nodejs"}
+    tools {nodejs "nodejs"}
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // sh 'npm config ls'
+                sh 'npm config ls'
                 // sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn install'
                 // sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn build'
                 sh 'yarn install'
