@@ -7,8 +7,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'export PATH="$PATH:/usr/local/bin" && yarn install'
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                sh 'yarn install'
                 sh 'yarn build'
+                }
                 sh 'docker build -t test:latest .'
                 echo 'Done!'
             }
