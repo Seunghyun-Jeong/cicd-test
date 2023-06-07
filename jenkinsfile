@@ -5,13 +5,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo 'Done.'
+                sh 'yarn install'
+                sh 'yarn build'
+                sh 'docker build -t test:latest .'
+                echo 'Done!'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                echo 'Done.'
+                echo 'Done!'
             }
         }
         stage('Deploy') {
@@ -20,13 +23,16 @@ pipeline {
                 script {
                     sh "chmod +x -R ${env.WORKSPACE}"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/api-start.sh"
+                    sh "${env.WORKSPACE}/scripts/codedeploy/live/building-start.sh"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/chat-start.sh"
+                    sh "${env.WORKSPACE}/scripts/codedeploy/live/container-start.sh"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/etc-start.sh"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/main-start.sh"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/parser-start.sh"
+                    sh "${env.WORKSPACE}/scripts/codedeploy/live/planet-start.sh"
                     sh "${env.WORKSPACE}/scripts/codedeploy/live/rooms-start.sh"
                 }
-                echo 'Done.'
+                echo 'Done!'
             }
         }
     }
