@@ -3,14 +3,13 @@ pipeline {
 
     tools {
         nodejs "nodejs"
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '20.10.14'
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '20.10'
     }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building...'
-                echo 'test'
                 dir('/var/jenkins_home/workspace/cicd-test/') {
                     sh 'docker build -t test:latest .'
                 }
