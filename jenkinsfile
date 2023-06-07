@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'yarn install'
+                sh 'export PATH="$PATH:/usr/local/bin" && yarn install'
                 sh 'yarn build'
                 sh 'docker build -t test:latest .'
                 echo 'Done!'
