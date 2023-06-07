@@ -8,11 +8,9 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh 'npm config ls'
-                // sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn install'
-                // sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn build'
-                sh 'yarn install'
-                sh 'yarn build'
-                sh 'docker build -t test:latest .'
+                sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn install'
+                sh '/var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/nodejs/bin/yarn build'
+                // sh 'docker build -t test:latest .'
                 echo 'Done!'
             }
         }
