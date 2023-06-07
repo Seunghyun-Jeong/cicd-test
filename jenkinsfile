@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                dir('/var/jenkins_home/workspace/cicd-test/dockerfile') {
+                dir('/var/jenkins_home/workspace/cicd-test/') {
                     sh 'docker build -t test:latest .'
                 }
                 echo 'Done!'
