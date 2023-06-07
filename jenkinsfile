@@ -12,6 +12,7 @@ pipeline {
                 sh 'yarn build'
                 sh 'docker build -t test:latest .'
                 echo 'Done!'
+                echo 'Plz!'
             }
         }
         stage('Test') {
