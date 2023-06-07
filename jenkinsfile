@@ -1,7 +1,10 @@
 pipeline {
     agent any
 
-    tools {nodejs "nodejs"}
+    tools {
+        nodejs "nodejs"
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '20.10.14'
+    }
 
     stages {
         stage('Build') {
