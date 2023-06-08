@@ -7,13 +7,12 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Build by Dockerfile') {
             steps {
                 echo 'Building...'
                 dir('/var/jenkins_home/workspace/cicd-test') {
                     sh 'docker build -t test:latest .'
-                    sh 'docker images'
-                }
+                 }
                 echo 'Done!'
             }
         }
@@ -23,7 +22,7 @@ pipeline {
                 echo 'Done!'
             }
         }
-        stage('Deploy') {
+        stage('Upload to ECR') {
             steps {
                 echo 'Deploying....'
                 script {
@@ -45,4 +44,5 @@ pipeline {
             }
         }
     }
+}
 }
