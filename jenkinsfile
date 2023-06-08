@@ -14,6 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
+                sh 'docker ps'
                 dir('/var/jenkins_home/workspace/cicd-test') {
                     sh 'docker build -t test:latest .'
                 }
