@@ -10,15 +10,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                script {
-                    dir('/var/jenkins_home/workspace/cicd-test/') {
-                        docker.build('my-image:latest', '.')
-                }
-                }
-                // dir('/var/jenkins_home/workspace/cicd-test/') {
-                //     sh 'docker build -t test:latest .'
+                // script {
+                //     dir('/var/jenkins_home/workspace/cicd-test/') {
+                //         docker.build('my-image:latest', '.')
                 // }
+                dir('/var/jenkins_home/workspace/cicd-test') {
+                    sh 'docker build -t test:latest .'
+                }
                 echo 'Done!'
+            }
             }
         }
         stage('Test') {
