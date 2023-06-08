@@ -39,10 +39,10 @@ pipeline {
                     // docker.withRegistry("https://264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test", "ecr:ap-northeast-2:aws") {
                     //     docker.image("test:latest").push()
                     //}
-                }
                 dir('/var/jenkins_home/workspace/cicd-test') {
                     sh 'docker push 264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/test:latest'
-                 }
+                }
+                }
                 echo 'Done!'
             }
         }
