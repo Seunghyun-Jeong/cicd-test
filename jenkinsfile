@@ -12,6 +12,7 @@ pipeline {
                 echo 'Building...'
                 dir('/var/jenkins_home/workspace/cicd-test') {
                     sh 'docker build -t test:latest .'
+                    sh 'docker images'
                 }
                 echo 'Done!'
             }
