@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     environment {
-    TIME_ZONE = 'Asia/Seoul'
+        TIME_ZONE = 'Asia/Seoul'
+    }
 
     tools {
         nodejs 'nodejs'
-        // 'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
-        docker 'docker'
+        dockerTool 'docker'
     }
 
     stages {
@@ -45,5 +45,4 @@ pipeline {
             }
         }
     }
-}
 }
