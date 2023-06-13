@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build by Dockerfile') {
             steps {
-                echo 'Building...'
+                echo 'Build Start'
                 dir('/var/jenkins_home/workspace/cicd-test') {
                     sh 'docker build -t test .'
                  }
@@ -18,13 +18,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                echo 'Test Start'
                 echo 'Done!'
             }
         }
         stage('Upload to ECR') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploy Start'
                 script {
                     // sh "chmod +x -R ${env.WORKSPACE}"
                     // sh "${env.WORKSPACE}/scripts/codedeploy/live/api-start.sh"
