@@ -36,7 +36,7 @@ pipeline {
                     // sh "${env.WORKSPACE}/scripts/codedeploy/live/parser-start.sh"
                     // sh "${env.WORKSPACE}/scripts/codedeploy/live/planet-start.sh"
                     // sh "${env.WORKSPACE}/scripts/codedeploy/live/rooms-start.sh"
-                    docker.withRegistry("https://264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test", "ecr:ap-northeast-2:aws") {
+                    docker.withRegistry("https://264932596642.dkr.ecr.ap-northeast-2.amazonaws.com", "ecr:ap-northeast-2:aws") {
                         docker.image("test:latest").push()
                     }
                     // sh 'aws ecr get-login-password --region ap-northeast-2  | docker login --username AWS --password-stdin 264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test'
