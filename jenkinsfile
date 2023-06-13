@@ -41,7 +41,7 @@ pipeline {
                     //}
                     // sh 'docker tag test:latest 264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test:latest'
                     // sh 'docker push 264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test:latest'
-                    docker.withRegistry("https://264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test", "ecr:ap-northeast-2:aws") {
+                    docker.withRegistry("https://264932596642.dkr.ecr.ap-northeast-2.amazonaws.com", "ecr:ap-northeast-2:aws") {
                     docker.image("test:latest").push()
                     }
                 echo 'Done!'
