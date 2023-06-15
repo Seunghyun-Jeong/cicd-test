@@ -8,3 +8,10 @@ RUN yarn install
 COPY . .
 
 RUN yarn build
+
+CMD [ "sleep", "infinity" ]
+
+# RUN chmod +x /entrypoint.sh
+
+
+# ENTRYPOINT [ "sh", "/app/entrypoint.sh" ]
