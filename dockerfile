@@ -9,4 +9,4 @@ COPY . .
 
 RUN yarn build
 
-CMD [ "sleep", "infinity" ]
+CMD [ "yarn", "start" ]
