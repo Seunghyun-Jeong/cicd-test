@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        CLUSTER_NAME = "test-clus"
+        SERVICE_NAME = "test-serv"
+    }
+
     tools {
         nodejs 'nodejs'
         dockerTool 'docker'
@@ -33,10 +38,7 @@ pipeline {
             steps {
                 echo 'Deploy Start'
                 script {
-                    def clusterName = "test-clus"
-                    def serviceName = "test-serv"
-                    def taskDefinition = "test-task:latest"
-                    sh "aws ecs update-service --cluster ${clusterName} --service ${serviceName} --force-new-deployment --task-definition ${taskDefinition}"
+                    sh "aws ecs update-service --cluster ${CLUSTER_NAME} --service ${SERVICE_NAME} --force-new-deployment"
                 }
                 echo 'Done!'
             }
