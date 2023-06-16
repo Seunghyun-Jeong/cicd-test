@@ -17,13 +17,6 @@ pipeline {
             }
         }
 
-        // stage('Test') {
-        //     steps {
-        //         echo 'Test Start'
-        //         echo 'Done!'
-        //     }
-        // }
-
         stage('Upload to ECR') {
             steps {
                 echo 'Upload Start'
@@ -36,13 +29,14 @@ pipeline {
             }
         }
 
-        stage('ECR to EKS') {
+        stage('ECR to ECS') {
             steps {
                 echo 'Deploy Start'
                 script {
-                    sh 'kubectl create deployment test --image=264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test:latest'
-                    sh 'kubectl set image deployment/test my-app=264932596642.dkr.ecr.ap-northeast-2.amazonaws.com/ecr-test:latest'
-                    sh 'kubectl rollout status deployment/test'
+                    def clusterName = "test-clus"
+                    def serviceName = "test-serv"
+                    def taskDefinition = "test-task:latest"
+                    sh "aws ecs update-service --cluster ${clusterName} --service ${serviceName} --force-new-deployment --task-definition ${taskDefinition}"
                 }
                 echo 'Done!'
             }
