@@ -4,6 +4,7 @@ pipeline {
     environment {
         CLUSTER_NAME = "test-clus"
         SERVICE_NAME = "test-serv"
+        AWS_REGION = "ap-northeast-2"
     }
 
     tools {
