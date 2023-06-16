@@ -4,7 +4,7 @@ pipeline {
     environment {
         CLUSTER_NAME = "test-clus"
         SERVICE_NAME = "test-serv"
-        AWS_REGION = "ap-northeast-2"
+        // AWS_REGION = "ap-northeast-2"
     }
 
     tools {
@@ -39,7 +39,6 @@ pipeline {
             steps {
                 echo 'Deploy Start'
                 script {
-                    sh "aws configure set region ap-northeast-2"
                     sh "aws ecs update-service --cluster ${CLUSTER_NAME} --service ${SERVICE_NAME} --force-new-deployment"
                 }
                 echo 'Done!'
